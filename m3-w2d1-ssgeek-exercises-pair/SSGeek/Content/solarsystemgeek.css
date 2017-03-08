@@ -161,12 +161,18 @@ label {
         padding: 10px 0px;
     }
 
-        form div label {
+        form label {
             width: 200px;
             display: inline-block;
             vertical-align: top;
             padding-left: 20px;
             color: black;
+        }
+        #input-type {
+            
+            display: inline-block;
+            vertical-align: top;
+            margin-left: 220px;
         }
 
     form button {
@@ -176,6 +182,9 @@ label {
 
 input[type=text], input[type=datetime], textarea {
     width: 300px;
+}
+#drop-list {
+    width: 200px;
 }
 
 th, td {
