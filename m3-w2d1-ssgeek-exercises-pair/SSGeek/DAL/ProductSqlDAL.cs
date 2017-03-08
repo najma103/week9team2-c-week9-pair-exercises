@@ -9,6 +9,8 @@ namespace SSGeek.DAL
 {
     public class ProductSqlDAL : IProductDAL
     {
+        string connectionString = @"Data Source=DESKTOP-58F8CH1\SQLEXPRESS;Initial Catalog=AlienDB;Integrated Security=True";
+        string SQL_SelectProducts = @"select product_id, name, description, price, image_name FROM products";
 
         public Product GetProduct(int id)
         {
@@ -17,7 +19,38 @@ namespace SSGeek.DAL
        
         public List<Product> GetProducts()
         {
-            throw new NotImplementedException();
+            List<Product> productList = new List<Product>();
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    SqlCommand cmd = new SqlCommand(SQL_SelectProducts, conn);
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        Product p = new Product();
+                        p.ProductId = Convert.ToInt32(reader["product_id"]);
+                        p.Name = Convert.ToString(reader["name"]);
+                        p.Description = Convert.ToString(reader["description"]);
+                        p.Price = Convert.ToDouble(reader["price"]);
+                        p.ImageName = Convert.ToString(reader["image_name"]);
+
+                        productList.Add(p);
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                //Log and throw the exception
+                throw;
+            }
+
+            return productList;
         }
 
 		

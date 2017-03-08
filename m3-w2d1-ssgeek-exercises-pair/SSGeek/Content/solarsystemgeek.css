@@ -219,3 +219,23 @@ section.centeredPanel h2 {
     color: #000000; 
     text-align: center;
 }
+#post-div {
+    min-height: 50px;
+    margin:0;
+    padding:0;
+}
+#post-div p {
+    padding:0;
+    margin:0;
+}
+#header-post {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding:0;
+}
+
+.product-img {
+    width: 100px;
+    height: 100px;
+}

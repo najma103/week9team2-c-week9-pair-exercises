@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "GetProducts";
+}
+@using SSGeek.Models;
+@model List<Product>
+
+
+
+<section id="main-content">
+    <div>
+        <h2>Solar System Geek Gift Shop</h2>
+        @foreach (Product prod in Model)
+        {
+            <div style="display:inline-block" >
+                <img src="~/Content/img/@prod.ImageName" alt="Image" class="product-img"/>
+            </div>
+            <div style="display:inline-block">
+                <h4>@prod.Name</h4>
+                <h4 style="color:deepskyblue">@prod.Price.ToString("C")</h4>
+
+            </div>
+            <br />
+        }
+
+    </div>
+</section>
+
