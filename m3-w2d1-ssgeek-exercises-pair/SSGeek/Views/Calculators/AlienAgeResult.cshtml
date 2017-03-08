@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "AlienAgeResult";
+}
+@using SSGeek.Models;
+@model AlienAgeModel
+<section id="main-content">
+    
+    
+    <div class="planet">
+        <h2 text-align="center">Alien Age Result</h2>
+        <div class="planets">
+            <img src="~/Content/img/@(Model.PlanetName + ".jpg")"alt="Image" width="100" height="100"/>
+        </div>
+        <div class="planets" text-align="center">
+            <strong>
+                if your are @Model.Age years old on planet Earth, then you are @Model.AgeResult.ToString("N2") @Model.PlanetName years old.
+                </strong>
+            <p>@ViewBag.response </p>
+        </div>
+    </div>
+</section>
+

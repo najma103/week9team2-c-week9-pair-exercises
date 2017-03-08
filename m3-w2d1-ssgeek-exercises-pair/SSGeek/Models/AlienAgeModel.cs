@@ -8,7 +8,9 @@ namespace SSGeek.Models
 {
     public class AlienAgeModel
     {
-
+        public int Age { get; set; }
+        public double AgeResult { get; set; }
+        public string PlanetName { get; set; }
 
         public static List<SelectListItem> Planets { get; } = new List<SelectListItem>()
         {

@@ -136,6 +136,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AlienAgeModel.cs" />
+    <Compile Include="Models\AlienWeightModel.cs" />
     <Compile Include="Models\ForumPost.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\TriviaModel.cs" />
@@ -146,6 +147,9 @@
     <Content Include="packages.config" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Planets\Index.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Calculators\AlienAge.cshtml" />
+    <Content Include="Views\Calculators\AlienAgeResult.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -155,7 +159,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Calculators\" />
     <Folder Include="Views\Home\" />
   </ItemGroup>
   <PropertyGroup>
