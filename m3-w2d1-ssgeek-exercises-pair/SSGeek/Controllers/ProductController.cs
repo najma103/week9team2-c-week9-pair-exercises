@@ -18,5 +18,10 @@ namespace SSGeek.Controllers
             
             return View("GetProducts", productList);
         }
+
+        public ActionResult ProductDetail(Product model)
+        {
+            return View("ProductDetail", model);
+        }
     }
 }

@@ -13,9 +13,15 @@
         @foreach (Product prod in Model)
         {
             <div style="display:inline-block" >
-                <img src="~/Content/img/@prod.ImageName" alt="Image" class="product-img"/>
+
+               @*anchor tag with image link to product detail*@ 
+                <a href='@Url.Action("ProductDetail", "Product")'>
+                    <img src='@Url.Content("~/Content/img/" + @prod.ImageName)' 
+                         class="product-img"/>
+                </a>
+
             </div>
-            <div style="display:inline-block">
+            <div style="display:inline-block; width: 200px">
                 <h4>@prod.Name</h4>
                 <h4 style="color:deepskyblue">@prod.Price.ToString("C")</h4>
 

@@ -155,6 +155,7 @@
     <Content Include="Views\Forum\ForumPost.cshtml" />
     <Content Include="Views\Forum\ForumView.cshtml" />
     <Content Include="Views\Product\GetProducts.cshtml" />
+    <Content Include="Views\Product\ProductDetail.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
