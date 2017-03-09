@@ -8,5 +8,6 @@ namespace SSGeek.Models
     public class AlienWeightModel
     {
         public double Weight { get; set; }
+        public string planetName { get; set; }
     }
 }

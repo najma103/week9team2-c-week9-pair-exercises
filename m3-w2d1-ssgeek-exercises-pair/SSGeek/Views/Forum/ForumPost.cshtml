@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "ForumPost";
+}
+
+<section id="main-content">
+
+
+    <div >
+        <h2 id="header-post">New Geek Post</h2>
+      
+        @using (Html.BeginForm("ForumPost", "Forum", FormMethod.Post))
+        {
+            @Html.Label("Username")
+            @Html.TextBox("Username")
+            <br />
+            <br />
+            @Html.Label("Subject")
+            @Html.TextBox("Subject")
+            <br />
+            @Html.Label("Message")
+            @Html.TextArea("Message")
+
+            <br />
+
+            <input type="submit" id="input-type" value="Submit" />
+
+            <br />
+        }
+        <p>@ViewBag.message</p>
+
+        @Html.ActionLink("View Message", "ForumView", "Forum")
+
+    </div>
+
+</section>
+

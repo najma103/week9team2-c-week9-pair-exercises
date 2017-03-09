@@ -134,8 +134,10 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CalculatorsController.cs" />
+    <Compile Include="Controllers\ForumController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PlanetsController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="DAL\ForumPostSqlDAL.cs" />
     <Compile Include="DAL\IForumPostDAL.cs" />
     <Compile Include="DAL\IProductDAL.cs" />
@@ -158,6 +160,10 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Calculators\AlienAge.cshtml" />
     <Content Include="Views\Calculators\AlienAgeResult.cshtml" />
+    <Content Include="Views\Forum\ForumPost.cshtml" />
+    <Content Include="Views\Forum\ForumView.cshtml" />
+    <Content Include="Views\Product\GetProducts.cshtml" />
+    <Content Include="Views\Product\ProductDetail.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
