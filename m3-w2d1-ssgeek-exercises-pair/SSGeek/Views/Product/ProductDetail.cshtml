@@ -22,7 +22,7 @@
             {
                 @Html.Label("Quantity to Buy")
                 @Html.TextBox("quantity")
-                @*@Html.HiddenFor(model => Model.ProductId);*@
+                @Html.Hidden("productid", Model.ProductId)
                 <input type="submit" value="Add to Cart"/>
             }
 

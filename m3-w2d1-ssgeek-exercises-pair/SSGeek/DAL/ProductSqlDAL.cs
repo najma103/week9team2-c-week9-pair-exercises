@@ -9,12 +9,35 @@ namespace SSGeek.DAL
 {
     public class ProductSqlDAL : IProductDAL
     {
-        string connectionString = @"Data Source=DESKTOP-58F8CH1\SQLEXPRESS;Initial Catalog=AlienDB;Integrated Security=True";
+        string connectionString = @"Data Source=DESKTOP-BQON135\SQLEXPRESS;Initial Catalog=AlienDB;Integrated Security=True";
         string SQL_SelectProducts = @"select product_id, name, description, price, image_name FROM products";
+        string SQL_GetProduct = @"SELECT * FROM products WHERE product_id = @productID";
 
         public Product GetProduct(int id)
         {
-			throw new NotImplementedException();
+            Product p = new Product();
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(SQL_GetProduct, conn);
+
+                
+
+                cmd.Parameters.AddWithValue("@productID", id);
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    
+                    p.ProductId = Convert.ToInt32(reader["product_id"]);
+                    p.Name = Convert.ToString(reader["name"]);
+                    p.Description = Convert.ToString(reader["description"]);
+                    p.Price = Convert.ToDouble(reader["price"]);
+                    p.ImageName = Convert.ToString(reader["image_name"]);
+
+                }
+            }
+            return p;
         }
        
         public List<Product> GetProducts()

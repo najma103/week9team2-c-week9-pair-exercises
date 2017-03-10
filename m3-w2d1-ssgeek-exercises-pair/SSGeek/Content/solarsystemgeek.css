@@ -239,3 +239,7 @@ section.centeredPanel h2 {
     width: 150px;
     height: 140px;
 }
+
+.Cart th, td {
+    color:black;
+}

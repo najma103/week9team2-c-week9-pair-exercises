@@ -36,7 +36,7 @@ namespace SSGeek.Controllers
         }
 
         //post shopping cart
-        public ActionResult ViewCart(int id)
+        public ActionResult ViewCart()
         {
             IProductDAL DAL = new ProductSqlDAL();
             List<Product> productList = DAL.GetProducts();
@@ -44,12 +44,17 @@ namespace SSGeek.Controllers
             Cart();
             List<Product> currentCart = (List<Product>)Session["cart"];
             int quantity = Convert.ToInt32(Request.Params["quantity"]);
-            //ViewDataDictionary[Product];
-            int productid = id;
+            int productid = Convert.ToInt32(Request.Params["productid"]);
+
+            for (int i = 0; i < quantity; i++)
+            {
+                currentCart.Add(DAL.GetProduct(productid));
+            }
+
+            Session["cart"] = currentCart;
 
 
-
-            return View("ViewCart");
+            return View("ViewCart", currentCart);
         }
 
         private void Cart()

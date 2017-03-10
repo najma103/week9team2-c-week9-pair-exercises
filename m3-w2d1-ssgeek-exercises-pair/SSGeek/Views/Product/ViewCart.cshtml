@@ -1,7 +1,118 @@
-﻿
-@{
-    ViewBag.Title = "ViewCart";
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>ViewCart</h2>
+@using SSGeek.Models
 
+@model List<Product>
+
+@{
+    int prod1 = 0;
+    int prod2 = 0;
+    int prod3 = 0;
+    int prod4 = 0;
+    decimal grandTotal = 0;
+}
+<section class="centeredPanel">
+    <div class="Cart">
+        <h3 style="text-align:center">Solar System Geek Gift Shop</h3>
+        @foreach (Product p in Model)
+        {
+            if (p.ProductId == 1)
+            {
+                prod1++;
+            }
+
+            else if (p.ProductId == 2)
+            {
+                prod2++;
+            }
+            else if (p.ProductId == 3)
+            {
+                prod3++;
+            }
+            else if (p.ProductId == 4)
+            {
+                prod4++;
+            }
+        }
+        <table style="width: 100%">
+            <tr><td></td><td>Name</td><td>Price</td><td>Quantity</td><td>Total</td></tr>
+            @foreach (Product p in Model)
+            {
+                if (p.ProductId == 1)
+                {
+                    if (!(prod1 == 0))
+                    {
+                        <tr>
+                            <td><img src="~/Content/img/@p.ImageName" /></td>
+                            <td>@(p.Name)</td>
+                            <td>@(p.Price.ToString("C"))</td>
+                            <td>@(prod1)</td>
+                            <td>@((prod1 * p.Price).ToString("C"))</td>
+                            <td hidden>@(grandTotal += (decimal)(prod1 * p.Price))</td>
+                            <td hidden>@(prod1 = 0);</td>
+                        </tr>
+                        
+                    }
+                }
+                if (p.ProductId == 2)
+                {
+                    if (!(prod2 == 0))
+                    {
+                        <tr>
+                            <td><img src="~/Content/img/@p.ImageName" /></td>
+                            <td>@(p.Name)</td>
+                            <td>@(p.Price.ToString("C"))</td>
+                            <td>@(prod2)</td>
+                            <td>@((prod2 * p.Price).ToString("C"))</td>
+                            <td hidden>@(grandTotal += (decimal)(prod2 * p.Price))</td>
+                            <td hidden>@(prod2 = 0);</td>
+                        </tr>
+                    }
+                }
+
+                if (p.ProductId == 3)
+                {
+                    if (!(prod3 == 0))
+                    {
+                        <tr>
+                            <td><img src="~/Content/img/@p.ImageName" /></td>
+                            <td>@(p.Name)</td>
+                            <td>@(p.Price.ToString("C"))</td>
+                            <td>@(prod3)</td>
+                            <td>@((prod3 * p.Price).ToString("C"))</td>
+                            <td hidden>@(grandTotal += (decimal)(prod3 * p.Price))</td>
+                            <td hidden>@(prod3 = 0);</td>
+                        </tr>
+
+                    }
+                }
+                if (p.ProductId == 4)
+                {
+                    if (!(prod4 == 0))
+                    {
+                        <tr>
+                            <td><img src="~/Content/img/@p.ImageName" /></td>
+                            <td>@(p.Name)</td>
+                            <td>@(p.Price.ToString("C"))</td>
+                            <td>@(prod4)</td>
+                            <td>@((prod4 * p.Price).ToString("C"))</td>
+                            <td hidden>@(grandTotal += (decimal)(prod4 * p.Price))</td>
+                            <td hidden>@(prod4 = 0);</td>
+                        </tr>
+                    }
+                }
+            }
+        </table>
+        <br />
+        
+    </div>
+    <div>
+        <h3 style="display:block; font-weight:bold; text-align:right; padding:0px 10px 10px 0px">Grand Total: @(grandTotal.ToString("C"))</h3>
+    </div>
+    <div>
+        <a style="display:block; padding:10px; text-align:right" href="">Check Out</a>
+    </div>
+
+    </section>

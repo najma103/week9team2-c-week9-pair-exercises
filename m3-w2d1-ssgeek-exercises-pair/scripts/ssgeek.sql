@@ -1,4 +1,3 @@
-
 create table forum_post
 (
 	id int identity(1,1),

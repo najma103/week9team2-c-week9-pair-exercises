@@ -9,7 +9,7 @@ namespace SSGeek.DAL
 {
     public class ForumPostSqlDAL : IForumPostDAL
     {
-        string connectionString = @"Data Source=DESKTOP-58F8CH1\SQLEXPRESS;Initial Catalog=AlienDB;Integrated Security=True";
+        string connectionString = @"Data Source=DESKTOP-BQON135\SQLEXPRESS;Initial Catalog=AlienDB;Integrated Security=True";
         string SQL_SelectForum = @"select id, username, subject, message, post_date FROM forum_post";
         string SQL_Insert_Request = @"insert into forum_post values(@user_name, @subject, @message, getdate())";
         public List<ForumPost> GetAllPosts()
