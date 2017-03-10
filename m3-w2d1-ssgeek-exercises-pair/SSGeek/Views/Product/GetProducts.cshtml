@@ -9,19 +9,19 @@
 
 <section id="main-content">
     <div>
-        <h2>Solar System Geek Gift Shop</h2>
+        <h2 style="text-align:center">Solar System Geek Gift Shop</h2>
         @foreach (Product prod in Model)
         {
-            <div style="display:inline-block" >
+            <div style="display:inline-block;margin-left:40px" >
 
                @*anchor tag with image link to product detail*@ 
-                <a href='@Url.Action("ProductDetail", "Product")'>
+                <a href='@Url.Action("ProductDetail", "Product", new { id = prod.ProductId })'>
                     <img src='@Url.Content("~/Content/img/" + @prod.ImageName)' 
                          class="product-img"/>
                 </a>
 
             </div>
-            <div style="display:inline-block; width: 300px">
+            <div style="display:inline-block; width: 500px; vertical-align:top">
                 <h4>@prod.Name</h4>
                 <h4 style="color:deepskyblue">@prod.Price.ToString("C")</h4>
 

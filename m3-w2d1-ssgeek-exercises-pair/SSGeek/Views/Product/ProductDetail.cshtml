@@ -1,11 +1,31 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "ProductDetail";
+    ViewBag.id = Model.ProductId;
 }
 
-<h2>ProductDetail</h2>
+@using SSGeek.Models;
+@model Product 
 
 <section id="main-content">
 
+    <div>
+        <h2 style="text-align:center"> Solar System Geek Gift Shop</h2>
+        <div style="display:inline-block">
+            <img src="~/Content/img/@Model.ImageName" />
+        </div>
+        <div style="display:inline-block; width: 500px; vertical-align:top">
+            <strong> @Model.Name </strong> <br />
+            <h4 style="color:deepskyblue">@Model.Price.ToString("C")</h4> <br />
+            @Model.Description <br />
 
+            @using (Html.BeginForm("ViewCart", "Product", FormMethod.Post, new { Model.ProductId }))
+            {
+                @Html.Label("Quantity to Buy")
+                @Html.TextBox("quantity")
+                @*@Html.HiddenFor(model => Model.ProductId);*@
+                <input type="submit" value="Add to Cart"/>
+            }
+
+        </div>
+    </div>
 </section>
