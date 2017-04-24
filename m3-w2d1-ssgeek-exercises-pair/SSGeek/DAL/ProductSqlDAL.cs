@@ -9,7 +9,7 @@ namespace SSGeek.DAL
 {
     public class ProductSqlDAL : IProductDAL
     {
-        string connectionString = @"Data Source=DESKTOP-BQON135\SQLEXPRESS;Initial Catalog=AlienDB;Integrated Security=True";
+        string connectionString = @"Data Source=DESKTOP-58F8CH1\SQLEXPRESS;Initial Catalog=AlienDB;Integrated Security=True";
         string SQL_SelectProducts = @"select product_id, name, description, price, image_name FROM products";
         string SQL_GetProduct = @"SELECT * FROM products WHERE product_id = @productID";
 
